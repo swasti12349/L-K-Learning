@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/LKLearning/app/src/main/res/drawable/cardbg.xml" value="0.2203125" />
+        <entry key="..\:/LKLearning/app/src/main/res/drawable/dialogbg.xml" value="0.2203125" />
+        <entry key="..\:/LKLearning/app/src/main/res/drawable/done.xml" value="0.2203125" />
+        <entry key="..\:/LKLearning/app/src/main/res/drawable/downarrow.xml" value="0.2203125" />
+        <entry key="..\:/LKLearning/app/src/main/res/drawable/ell.xml" value="0.2203125" />
+        <entry key="..\:/LKLearning/app/src/main/res/drawable/ic_av.xml" value="0.2203125" />
+        <entry key="..\:/LKLearning/app/src/main/res/drawable/ic_e2.xml" value="0.2203125" />
+        <entry key="..\:/LKLearning/app/src/main/res/drawable/ic_ell2.xml" value="0.2203125" />
+        <entry key="..\:/LKLearning/app/src/main/res/drawable/ic_prev.xml" value="0.2203125" />
+        <entry key="..\:/LKLearning/app/src/main/res/drawable/next.xml" value="0.2203125" />
+        <entry key="..\:/LKLearning/app/src/main/res/drawable/rec.xml" value="0.2203125" />
+        <entry key="..\:/LKLearning/app/src/main/res/drawable/roundrec.xml" value="0.2203125" />
+        <entry key="..\:/LKLearning/app/src/main/res/layout/activity_available_material.xml" value="0.20416666666666666" />
+        <entry key="..\:/LKLearning/app/src/main/res/layout/activity_home.xml" value="0.19010416666666666" />
+        <entry key="..\:/LKLearning/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/LKLearning/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/LKLearning/app/src/main/res/layout/activity_menu_screen.xml" value="0.19010416666666666" />
+        <entry key="..\:/LKLearning/app/src/main/res/layout/activity_signup.xml" value="0.2" />
+        <entry key="..\:/LKLearning/app/src/main/res/layout/as.xml" value="0.20416666666666666" />
+        <entry key="..\:/LKLearning/app/src/main/res/layout/enter_pass_dialog.xml" value="0.25" />
+        <entry key="..\:/LKLearning/app/src/main/res/layout/entermobdialog.xml" value="0.20416666666666666" />
+        <entry key="..\:/LKLearning/app/src/main/res/layout/otp_verification.xml" value="0.20416666666666666" />
+        <entry key="..\:/LKLearning/app/src/main/res/layout/otp_verify_success.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/cardbg.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/dialogbg.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/done.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/ic_align.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/ic_align2.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/ic_chat.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/ic_contact_us.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/ic_differentoptions.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/ic_rect.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/ic_splash_screen.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/ic_subscriptions.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/ic_textview_background.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/next.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/rec.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/roundrec.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/drawable/submit_but.xml" value="0.2203125" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/layout/activity_about_app.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/layout/activity_available_material.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/layout/activity_different_options.xml" value="0.2" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/layout/activity_otp_avtivity.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/layout/activity_signup.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/layout/as.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/layout/entermobdialog.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/layout/otp_verification.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/layout/otp_verify_success.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/layout/signupoptions.xml" value="0.22" />
+        <entry key="..\:/Users/DAVIDJONESPC/OneDrive/Desktop/lk/L-K-Learning/app/src/main/res/layout/singlelist.xml" value="0.20416666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="SuppressABINotification">
+    <option name="modulesWithSuppressedNotConfigured">
+      <set>
+        <option value="L_K_Learning.app" />
+      </set>
+    </option>
+  </component>
+</project>
