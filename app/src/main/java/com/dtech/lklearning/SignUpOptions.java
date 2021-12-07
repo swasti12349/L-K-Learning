@@ -19,7 +19,7 @@ public class SignUpOptions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signupoptions);
         arrayList = new ArrayList<>();
-        autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+        autoCompleteTextView = findViewById(R.id.autoComplete);
         arrayList.add("Hello");
         arrayList.add("Hello");
         arrayList.add("Hello");
