@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MenuScreen extends AppCompatActivity {
 
-    private Button login,aboutapp,availablematerial;
+    private ImageView login,aboutapp,availablematerial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class MenuScreen extends AppCompatActivity {
         //on click on login
         login.setOnClickListener(v->{
             startActivity(new Intent(MenuScreen.this,Login.class));
+
 
         });
 

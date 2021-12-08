@@ -7,6 +7,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -18,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class Home extends AppCompatActivity {
 
-    ImageView drawer;
+    ImageView drawer,notification_home;
     NavigationView navigation;
     DrawerLayout drawerLayout;
 
@@ -33,6 +34,13 @@ public class Home extends AppCompatActivity {
         //declaring navigation for drawer
         navigation=findViewById(R.id.nav_menu);
         drawerLayout=findViewById(R.id.drawer);
+        notification_home=findViewById(R.id.notification_home_id);
+
+        //temporary for testing will be changed later
+        notification_home.setOnClickListener(v->{
+            startActivity(new Intent(Home.this,Payment_one.class));
+
+        });
 
         drawer.setOnClickListener(v->{
             drawerLayout.openDrawer(GravityCompat.START);
@@ -51,6 +59,20 @@ public class Home extends AppCompatActivity {
                     case R.id.contact_us_id:
                         startActivity(new Intent(Home.this,ContactUs.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
+                }
+                switch(item.getItemId()){
+                    case R.id.logout_id:
+
+                        SharedPreferences preferences = getSharedPreferences("checkbox",MODE_PRIVATE);
+                        SharedPreferences.Editor editor=preferences.edit();
+                        editor.putString("remember","flase");
+                        editor.apply();
+
+                        drawerLayout.closeDrawer(GravityCompat.START);
+
+                        startActivity(new Intent (Home.this,Login.class));
+                        finish();
+
                 }
                 return true;
             }
