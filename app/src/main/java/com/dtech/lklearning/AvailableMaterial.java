@@ -30,14 +30,15 @@ public class AvailableMaterial extends AppCompatActivity {
         branch = new ArrayList<>();
 
         getUniversity();
-        getBranch();
+//        getBranch();
+        // hello
 
     }
 
     private void getUniversity() {
 
 
-        String univURL = "https://94.130.8.49:3000/universities/getUniversities";
+        String univURL = "http://94.130.8.49:3000/universities/getUniversities";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, univURL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -51,6 +52,7 @@ public class AvailableMaterial extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(AvailableMaterial.this, "Error", Toast.LENGTH_SHORT).show();
+                    Log.d("errors", e.toString());
                 }
 
             }
@@ -69,7 +71,7 @@ public class AvailableMaterial extends AppCompatActivity {
     private void getBranch() {
 
 
-        String URL = "https://94.130.8.49:3000/branches/getBranches";
+        String URL = "http://94.130.8.49:3000/branches/getBranches";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
