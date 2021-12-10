@@ -364,12 +364,13 @@
 
 
        <AutoCompleteTextView
-           android:id="@+id/shape_signupoptions_id"
+           android:id="@+id/academic_year_signupoptions_id"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:layout_weight="1"
            android:drawableEnd="@drawable/ic_down"
-           android:hint="No shape selected"
+           android:hint="No year selected"
+
            android:layout_marginStart="20dp"
            android:layout_marginTop="10dp"
            android:layout_marginEnd="20dp"
@@ -418,7 +419,7 @@
 
 
        <AutoCompleteTextView
-           android:id="@+id/autoCompleteTextView10"
+           android:id="@+id/educationstatus_signupotptions_id"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:layout_weight="1"
