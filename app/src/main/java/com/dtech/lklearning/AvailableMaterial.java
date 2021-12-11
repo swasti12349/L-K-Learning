@@ -30,8 +30,7 @@ public class AvailableMaterial extends AppCompatActivity {
         branch = new ArrayList<>();
 
         getUniversity();
-//        getBranch();
-        // hello
+        getBranch();
 
     }
 

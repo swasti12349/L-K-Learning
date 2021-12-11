@@ -104,12 +104,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="40dp"
         android:layout_marginTop="364dp"
-        android:drawableEnd="@drawable/ic_down"
-        android:paddingEnd="20dp"
         android:layout_marginEnd="40dp"
         android:background="@drawable/roundrec"
+        android:drawableEnd="@drawable/ic_down"
         android:hint="No Semester selected"
-        android:paddingStart="15dp" />
+        android:paddingStart="15dp"
+        android:paddingEnd="20dp" />
 
     <EditText
         android:id="@+id/us3"
@@ -133,4 +133,13 @@
     android:layout_marginTop="34dp"
     android:layout_marginStart="25dp"
     />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/us5"
+        android:layout_marginTop="5dp" />
+
+
 </RelativeLayout>
