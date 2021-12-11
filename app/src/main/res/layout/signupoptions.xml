@@ -65,6 +65,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+
+
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/ic_shape"
@@ -141,7 +143,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/ic_shape"
+
         app:endIconMode="password_toggle"
 
         app:hintEnabled="false">
@@ -149,7 +151,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/confirm_password_signupoptions_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_shape"
+
             android:hint="Confirm Password"
             android:padding="10dp" />
     </com.google.android.material.textfield.TextInputLayout>

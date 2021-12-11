@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -19,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,18 +38,57 @@ public class SignUpOptions extends AppCompatActivity {
     ArrayList<String> districts=new ArrayList<>();
     String[] year=new String[] {"2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023"};
 
+    ArrayList<String> semesters;
+    ArrayList<String> college_id;
+
+
+    ArrayList<String> university_id;
+    ArrayList<String> course_id;
+    ArrayList<String> branch_id;
+    ArrayList<String> semester_id;
+
     ArrayList<String> universityi;
+    ArrayList<String> colleges;
+    ArrayList<String> courses;
+    ArrayList<String> branches;
+
+    String col_id;
+
+    FirebaseAuth mAuth;
+
+    Button sign_up;
+    EditText name,mobile,email,password,confirmpassword;
 
 
     String state;
-    AutoCompleteTextView stateview , districtview,university,academicyear,college,course;
+    AutoCompleteTextView stateview , districtview,university,academicyear,college,course,branch,taluka,semester,education;
     String JSON;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signupoptions);
+
+        mAuth=FirebaseAuth.getInstance();
+        String user=mAuth.getCurrentUser().getPhoneNumber();
         universityi = new ArrayList<>();
+        colleges=new ArrayList<>();
+        courses=new ArrayList<>();
+        branches=new ArrayList<>();
+        college_id=new ArrayList<>();
+        university_id=new ArrayList<>();
+        course_id=new ArrayList<>();
+        branch_id=new ArrayList<>();
+        semester_id=new ArrayList<>();
+        semesters=new ArrayList<>();
+
+
+        getUniversity();
+        get_Colleges();
+        get_Courses();
+        getBranch();
+        getSemester();
+
 
 
 
@@ -70,6 +112,130 @@ public class SignUpOptions extends AppCompatActivity {
         academicyear=findViewById(R.id.academic_year_signupoptions_id);
         college=findViewById(R.id.college_signupoptions_id);
         course=findViewById(R.id.course_signupoptions_id);
+        branch=findViewById(R.id.branch_signupoptions_id);
+        name=findViewById(R.id.name_signupoptions_id);
+        taluka=findViewById(R.id.taluka_signupoptions_id);
+        mobile=findViewById(R.id.mobileno_signupoptions_id);
+        semester=findViewById(R.id.semester_signupoptions_id);
+        education=findViewById(R.id.educationstatus_signupotptions_id);
+
+        //mobile.setText(user);
+
+
+        email=findViewById(R.id.email_adress_signupoptions_id);
+        password=findViewById(R.id.password_signupoptions_id);
+        confirmpassword=findViewById(R.id.confirm_password_signupoptions_id);
+
+
+        sign_up=findViewById(R.id.signup_signupoptions_id);
+
+
+
+        sign_up.setOnClickListener(v->{
+            String name1,mobile1,email1,password1,confirmpassword1,state1,district1,taluka1,university1,college1,course1,branch1,academic1,semster1,educationstatus1;
+
+            name1=name.getText().toString();
+            mobile1=user;
+            email1=email.getText().toString();
+            password1=password.getText().toString();
+            confirmpassword1=confirmpassword.getText().toString();
+            state1=stateview.getText().toString();
+            taluka1=taluka.getText().toString();
+            district1=districtview.getText().toString();
+            university1=university.getText().toString();
+            college1=college.getText().toString();
+            course1=course.getText().toString();
+            branch1=branch.getText().toString();
+            academic1=academicyear.getText().toString();
+            semster1=semester.getText().toString();
+            educationstatus1=education.getText().toString();
+            
+
+
+            if (!name1.isEmpty()){
+
+                if (!email1.isEmpty()){
+                    if (!password1.isEmpty()){
+                        if (!confirmpassword1.isEmpty() && password1.equals(confirmpassword1)){
+                            if (!state1.isEmpty()){
+                                if (!taluka1.isEmpty()){
+                                    if (!district1.isEmpty()){
+                                        if (!university1.isEmpty()){
+                                            if (!college1.isEmpty()){
+                                                if (!branch1.isEmpty()){
+                                                    if(!academic1.isEmpty()){
+                                                        if (!course1.isEmpty()){
+                                                            if(!semster1.isEmpty()){
+                                                                if (!educationstatus1.isEmpty()){
+
+                                                                    if(mobile1==user){
+
+                                                                        signup(name1,mobile1,email1,password1,state1,taluka1,district1,university1,college1,branch1,academic1,course1,semster1,educationstatus1);
+
+                                                                    }
+                                                                    else{
+                                                                        mobile.setError("Please give the verified mobile no.");
+                                                                    }
+
+                                                                }
+                                                                else{
+                                                                    education.setError("Empty fields are not allowed!");
+                                                                }
+                                                            }
+                                                            else{
+                                                                semester.setError("Empty fields are not allowed!");
+                                                            }
+                                                        }
+                                                        else{
+                                                            course.setError("Empty fields are not allowed!");
+                                                        }
+                                                    }
+                                                    else{
+                                                        academicyear.setError("Empty fields are not allowed!");
+                                                    }
+                                                }
+                                                else{
+                                                    branch.setError("Empty fields are not allowed!");
+                                                }
+                                            }
+                                            else{
+                                                college.setError("Empty fields are not allowed!");
+                                            }
+                                        }
+                                        else{
+                                            university.setError("Empty fields are not allowed!");
+                                        }
+                                    }
+                                }
+                                else {
+                                    taluka.setError("Empty fields are not allowed!");
+                                }
+                            }
+                            else{
+                                stateview.setError("Empty fields are not allowed!");
+                            }
+                        }
+                        else{
+                            confirmpassword.setError("Password must be same");
+                        }
+                    }
+                    else{
+                        password.setError("Empty fields are not allowed!");
+                    }
+                }
+                else{
+                    email.setError("Empty fields are not allowed!");
+                }
+
+            }
+            else{
+                name.setError("Empty fields are not allowed!");
+            }
+
+
+
+
+        });
 
 
 
@@ -84,7 +250,27 @@ public class SignUpOptions extends AppCompatActivity {
 
         ArrayAdapter<String> stateAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,states);
         ArrayAdapter<String> yearAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,year);
+        ArrayAdapter<String> university_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,universityi);
+        ArrayAdapter<String> college_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,colleges);
+        ArrayAdapter<String> course_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,courses);
+        ArrayAdapter<String> branch_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,branches);
+        ArrayAdapter<String> semester_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,semesters);
 
+        branch.setAdapter(branch_adapter);
+        branch.setThreshold(0);
+
+        semester.setAdapter(semester_adapter);
+        semester.setThreshold(0);
+
+
+        course.setAdapter(course_adapter);
+        course.setThreshold(0);
+
+        university.setAdapter(university_adapter);
+        university.setThreshold(0);
+
+        college.setAdapter(college_adapter);
+        college.setThreshold(0);
 
         stateview.setAdapter(stateAdapter);
         stateview.setThreshold(0);
@@ -102,12 +288,77 @@ public class SignUpOptions extends AppCompatActivity {
                 state=adapterView.getItemAtPosition(i).toString();
                 //asyncTaskClass.execute(JSON);
                 get_json();
-                getUniversity();
+
 
 
 
             }
         });
+        college.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String college2=adapterView.getItemAtPosition(i).toString();
+
+
+            }
+        });
+
+
+
+    }
+
+    private void signup(String name1, String mobile1, String email1, String password1, String state1, String taluka1, String district1, String university1, String college1, String branch1, String academic1, String course1, String semster1, String educationstatus1) {
+        RequestQueue queue = Volley.newRequestQueue(SignUpOptions.this);
+        JSONObject params;
+
+
+        try {int college_index = colleges.indexOf(college1);
+            int university_index=universityi.indexOf(university1);
+            int course_index=courses.indexOf(course1);
+            int branch_index=branches.indexOf(branch1);
+            int semester_index=semesters.indexOf(semster1);
+
+            String College_id= college_id.get(college_index);
+            String University_is = university_id.get(university_index);
+            String Course_id = course_id.get(course_index);
+            String Branch_id = branch_id.get(branch_index);
+            String Semester_id = semester_id.get(semester_index);
+
+
+
+        }catch (Exception e){
+            Toast.makeText(this, "PLease Enter All the Information Correctly!", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+
+        String json  = "{\n" +
+                "    \"student_name\" : \"" + name1 +
+                "\" , \n" +
+                "    \"student_password\" : \"ross\" , \n" +
+                "    \"student_mobile_number\" : \"" +mobile1+
+                "\",\n" +
+                "    \"student_email\" : \"" +email1+
+                "\" ,\n" +
+                "    \"student_state\"  : \"" +state1+
+                "\" , \n" +
+                "    \"student_district\" : \"" +district1+
+                "\" , \n" +
+                "    \"student_taluka\" : \"" +taluka1+
+                "\" , \n" +
+                "    \"college_id\" : \"123\",\n" +
+                "    \"university_id\" : \"41\" ,\n" +
+                "    \"course_id\" : \"11\" , \n" +
+                "    \"branch_id\" : \"100\" ,\n" +
+                "    \"semester_id\" : \"21\" , \n" +
+                "    \"student_edu_status\" : \"Studying\" , \n" +
+                "    \"student_academic_yr\" : \"2022\"\n" +
+                "\n" +
+                "\n" +
+                " }\n" +
+                "\n";
+        StringBuilder builder;
 
 
 
@@ -126,7 +377,7 @@ public class SignUpOptions extends AppCompatActivity {
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject object = array.getJSONObject(i);
                         universityi.add(object.getString("university_name"));
-                        Log.d("lokp", universityi.toString());
+                        university_id.add(object.getString("university_id"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -146,102 +397,140 @@ public class SignUpOptions extends AppCompatActivity {
         queue.add(stringRequest);
     }
 
-//    private void get_Colleges(){
-//
-//        String colleges_url="94.130.8.49:3000/colleges/getColleges";
-//        StringRequest stringreqforcolleges = new StringRequest(Request.Method.GET, colleges_url, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                try {
-//                    JSONArray coljsonarray = new JSONArray(response);
-//                    for (int l=0;l<coljsonarray.length();l++){
-//                        JSONObject colobject = coljsonarray.getJSONObject(l);
-//                        //name yet to be checked
-//                        colleges.add(colobject.getString("college_name"));
-//
-//                    }
-//
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//            }
-//        });
-//
-//
-//
-//
-//    }
+    private void get_Colleges(){
 
-//    private void get_Courses(){
-//
-//        String colleges_url="94.130.8.49:3000/courses/getCourses";
-//        StringRequest stringreqforcolleges = new StringRequest(Request.Method.GET, colleges_url, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                try {
-//                    JSONArray coljsonarray = new JSONArray(response);
-//                    for (int l=0;l<coljsonarray.length();l++){
-//                        JSONObject colobject = coljsonarray.getJSONObject(l);
-//                        //name yet to be checked
-//                        colleges.add(colobject.getString("college_name"));
-//
-//                    }
-//
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//            }
-//        });
-////        ArrayAdapter<String> col_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,colleges);
-////        college.setAdapter(col_adapter);
-//
-//
-//
-//    }
+        String colleges_url="http://94.130.8.49:3000/colleges/getColleges";
+        StringRequest stringreqforcolleges = new StringRequest(Request.Method.GET, colleges_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray coljsonarray = new JSONArray(response);
+                    for (int l=0;l<coljsonarray.length();l++){
+                        JSONObject colobject = coljsonarray.getJSONObject(l);
+                        //name yet to be checked
+                        colleges.add(colobject.getString("college_name"));
+                        college_id.add(colobject.getString("college_id"));
 
-//    private void getBranch() {
-//
-//
-//        String URL = "https://94.130.8.49:3000/branches/getBranches";
-//        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                try {
-//                    JSONArray array = new JSONArray(response);
-//                    for (int i = 0; i < array.length(); i++) {
-//                        JSONObject object = array.getJSONObject(i);
-//                        branch.add(object.getString("branch_name"));
-//                        String ba=object.getString("branch_name");
-//                        Log.d("branches",ba);
-//                    }
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                    Toast.makeText(SignUpOptions.this, "Error", Toast.LENGTH_SHORT).show();
-//                }
-//
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//            }
-//        });
-//
-//        RequestQueue queue = Volley.newRequestQueue(this);
-//        queue.add(stringRequest);
-//    }
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringreqforcolleges);
+
+ }
+
+    private void get_Courses(){
+
+        String courses_url="http://94.130.8.49:3000/courses/getCourses";
+        StringRequest stringreqforcourses = new StringRequest(Request.Method.GET, courses_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray coljsonarray = new JSONArray(response);
+                    for (int l=0;l<coljsonarray.length();l++){
+                        JSONObject colobject = coljsonarray.getJSONObject(l);
+
+                        courses.add(colobject.getString("course_name"));
+                        course_id.add(colobject.getString("course_id"));
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringreqforcourses);
+
+
+
+
+    }
+
+    private void getBranch() {
+
+
+        String Branch_URL = "http://94.130.8.49:3000/branches/getBranches";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Branch_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray array = new JSONArray(response);
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject object = array.getJSONObject(i);
+                        branches.add(object.getString("branch_name"));
+                        branch_id.add(object.getString("branch_id"));
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(SignUpOptions.this, "Error", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
+    }
+
+    private void getSemester() {
+
+
+        String Semester_URL = "http://94.130.8.49:3000/semesters/getSemesters";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Semester_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray array = new JSONArray(response);
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject object = array.getJSONObject(i);
+
+                        semesters.add(object.getString("semester_name"));
+                        semester_id.add(object.getString("semester_id"));
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(SignUpOptions.this, "Error", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
+    }
+
 
 
 
