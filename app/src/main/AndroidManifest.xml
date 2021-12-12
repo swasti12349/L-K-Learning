@@ -30,11 +30,26 @@
 
 
 
+
         </activity>
 
         <activity android:name=".DifferentOptions"
             android:exported="true">
 
+
+
+        <activity android:name=".SignUpOptions"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".DifferentOptions"
+            android:exported="true">
 
 
             </activity>

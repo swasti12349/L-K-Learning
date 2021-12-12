@@ -1,6 +1,9 @@
 package com.dtech.lklearning;
 
+
 import android.content.Intent;
+
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -55,9 +58,14 @@ public class SignUpOptions extends AppCompatActivity {
     ArrayList<String> colleges;
     ArrayList<String> courses;
     ArrayList<String> branches;
+
     Button sign_up,cancel;
     EditText name, mobile, email, password, confirmpassword;
     FirebaseAuth mAuth;
+
+    Button sign_up;
+    EditText name, mobile, email, password, confirmpassword;
+
 
 
     String state;
@@ -69,10 +77,12 @@ public class SignUpOptions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signupoptions);
 
+
         mAuth=FirebaseAuth.getInstance();
         String user=mAuth.getCurrentUser().getPhoneNumber();
         String user2 = user.substring(3);
         Toast.makeText(this, user2, Toast.LENGTH_SHORT).show();
+
 
         universityi = new ArrayList<>();
         colleges = new ArrayList<>();
@@ -105,11 +115,14 @@ public class SignUpOptions extends AppCompatActivity {
         }
 
         //AsyncTaskClass asyncTaskClass = new AsyncTaskClass();
+
         cancel=findViewById(R.id.cancel_signupoptions_id);
 
         cancel.setOnClickListener(v->{
             finish();
         });
+
+
 
 
         university = findViewById(R.id.university_signupoptions_id);
@@ -123,7 +136,11 @@ public class SignUpOptions extends AppCompatActivity {
         semester = findViewById(R.id.semester_signupoptions_id);
         education = findViewById(R.id.educationstatus_signupotptions_id);
 
+
         mobile.setText(user2);
+
+        //mobile.setText(user);
+
 
 
         email = findViewById(R.id.email_adress_signupoptions_id);
@@ -138,7 +155,11 @@ public class SignUpOptions extends AppCompatActivity {
             String name1, mobile1, email1, password1, confirmpassword1, state1, district1, taluka1, university1, college1, course1, branch1, academic1, semster1, educationstatus1;
 
             name1 = name.getText().toString();
+
             mobile1=mobile.getText().toString();
+
+   
+
             email1 = email.getText().toString();
             password1 = password.getText().toString();
             confirmpassword1 = confirmpassword.getText().toString();
@@ -152,6 +173,9 @@ public class SignUpOptions extends AppCompatActivity {
             academic1 = academicyear.getText().toString();
             semster1 = semester.getText().toString();
             educationstatus1 = education.getText().toString();
+
+
+          
 
 
 
@@ -172,6 +196,7 @@ public class SignUpOptions extends AppCompatActivity {
                                                                 if (!educationstatus1.isEmpty()) {
 
 
+
                                                                     if(mobile1.equals(user2)){
                                                                         signup(name1, mobile1, email1, password1, state1, taluka1, district1, university1, college1, branch1, academic1, course1, semster1, educationstatus1);
 
@@ -180,7 +205,19 @@ public class SignUpOptions extends AppCompatActivity {
                                                                     }
                                                                     else{
                                                                         mobile.setError("Please give the verified mobile no.");
-                                                                    }
+
+                                                                   
+
+                                                                   if(mobile1.equals(user2)){
+                                                                      signup(name1, mobile1, email1, password1, state1, taluka1, district1, university1, college1, branch1, academic1, course1, semster1, educationstatus1);
+
+
+
+                                                                   }
+                                                                   else{
+                                                                       mobile.setError("Please give the verified mobile no.");
+                                                                   }
+
 
                                                                 } else {
                                                                     education.setError("Empty fields are not allowed!");
@@ -278,12 +315,26 @@ public class SignUpOptions extends AppCompatActivity {
 
 
 
+
+        college.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String college2 = adapterView.getItemAtPosition(i).toString();
+
+
+            }
+        });
+
+
+
     }
 
     private void signup(String name1, String mobile1, String email1, String password1, String state1, String taluka1, String district1, String university1, String college1, String branch1, String academic1, String course1, String semster1, String educationstatus1) {
         RequestQueue queue = Volley.newRequestQueue(SignUpOptions.this);
         JSONObject params;
+
         Toast.makeText(this, "Signing In", Toast.LENGTH_SHORT).show();
+
 
         String College_id, University_id, Course_id, Branch_id, Semester_id;
         String newurl = "http://94.130.8.49:3000/auth/register";
@@ -346,6 +397,7 @@ public class SignUpOptions extends AppCompatActivity {
                     try {
 
                         String str = response.getString("insertId");
+
                         startActivity(new Intent(SignUpOptions.this,Home.class));
                         Log.d("responsed", str);
 
@@ -381,8 +433,173 @@ public class SignUpOptions extends AppCompatActivity {
             Toast.makeText(this, "Please enter all the information correctly!", Toast.LENGTH_SHORT).show();
         }
 
+                        Toast.makeText(SignUpOptions.this, str, Toast.LENGTH_LONG).show();
+                        Log.d("responsed", str);
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d("polyu", response.toString());
+
+                }
+
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                }
+            }) {
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String, String> params = new HashMap<String, String>();
+
+                    return params;
+
+                }
+
+            };
+
+            queue.add(jsonObjectRequest);
+        } catch (
+                JSONException e) {
+            e.printStackTrace();
+        }
+
 
     }
+
+    private void getUniversity() {
+
+
+        String univURL = "http://94.130.8.49:3000/universities/getUniversities";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, univURL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray array = new JSONArray(response);
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject object = array.getJSONObject(i);
+                        universityi.add(object.getString("university_name"));
+                        university_id.add(object.getString("university_id"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(SignUpOptions.this, "Error", Toast.LENGTH_SHORT).show();
+                    Log.d("errors", e.toString());
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("verror", error.toString());
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
+    }
+
+    private void get_Colleges() {
+
+        String colleges_url = "http://94.130.8.49:3000/colleges/getColleges";
+        StringRequest stringreqforcolleges = new StringRequest(Request.Method.GET, colleges_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray coljsonarray = new JSONArray(response);
+                    for (int l = 0; l < coljsonarray.length(); l++) {
+                        JSONObject colobject = coljsonarray.getJSONObject(l);
+                        //name yet to be checked
+                        colleges.add(colobject.getString("college_name"));
+                        college_id.add(colobject.getString("college_id"));
+
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringreqforcolleges);
+
+    }
+
+    private void get_Courses() {
+
+        String courses_url = "http://94.130.8.49:3000/courses/getCourses";
+        StringRequest stringreqforcourses = new StringRequest(Request.Method.GET, courses_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray coljsonarray = new JSONArray(response);
+                    for (int l = 0; l < coljsonarray.length(); l++) {
+                        JSONObject colobject = coljsonarray.getJSONObject(l);
+
+                        courses.add(colobject.getString("course_name"));
+                        course_id.add(colobject.getString("course_id"));
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringreqforcourses);
+
+
+    }
+
+    private void getBranch() {
+
+
+        String Branch_URL = "http://94.130.8.49:3000/branches/getBranches";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Branch_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray array = new JSONArray(response);
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject object = array.getJSONObject(i);
+                        branches.add(object.getString("branch_name"));
+                        branch_id.add(object.getString("branch_id"));
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(SignUpOptions.this, "Error", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
+    }
+
 
     private void getUniversity() {
 
@@ -515,6 +732,7 @@ public class SignUpOptions extends AppCompatActivity {
         queue.add(stringRequest);
     }
 
+
     private void getSemester() {
 
 
@@ -600,7 +818,11 @@ public class SignUpOptions extends AppCompatActivity {
 //
 //
 //            try {
+
 ////                is = getAssets().open("states.json");
+
+////                is = getAssets().open("statesandcity.json");
+
 ////                int size = is.available();
 ////                byte[] buffer = new byte[size];
 ////                is.read();

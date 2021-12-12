@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProjects/L-K-Learning/app/src/main/res/drawable/ic_av.xml" value="0.2203125" />
+        <entry key="..\:/AndroidProjects/L-K-Learning/app/src/main/res/layout/activity_available_material.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProjects/L-K-Learning/app/src/main/res/layout/activity_different_options.xml" value="0.20416666666666666" />
-        <entry key="..\:/AndroidProjects/L-K-Learning/app/src/main/res/layout/signupoptions.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/L-K-Learning/app/src/main/res/layout/activity_signup.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidProjects/L-K-Learning/app/src/main/res/layout/signupoptions.xml" value="0.19290928050052136" />
         <entry key="..\:/LKLearning/app/src/main/res/drawable/cardbg.xml" value="0.2203125" />
         <entry key="..\:/LKLearning/app/src/main/res/drawable/dialogbg.xml" value="0.2203125" />
         <entry key="..\:/LKLearning/app/src/main/res/drawable/done.xml" value="0.2203125" />
