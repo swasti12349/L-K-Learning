@@ -38,7 +38,7 @@ public class Home extends AppCompatActivity {
 
         //temporary for testing will be changed later
         notification_home.setOnClickListener(v->{
-            startActivity(new Intent(Home.this,Payment_one.class));
+
 
         });
 

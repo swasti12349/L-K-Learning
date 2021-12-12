@@ -31,6 +31,87 @@
                 android:textStyle="bold" />
 
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Name"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/name_signupoptions_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_shape"
+        android:hint="Enter Name"
+        android:padding="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Mobile Number"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/mobileno_signupoptions_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+
+
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_shape"
+        android:hint="Mobile Number"
+        android:padding="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Enter Email Address"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/email_adress_signupoptions_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_shape"
+        android:hint="Email address"
+        android:padding="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Password"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,6 +120,7 @@
                 android:text="Name"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
+
 
             <EditText
                 android:id="@+id/name_signupoptions_id"
@@ -103,6 +185,27 @@
                 android:textSize="20sp" />
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+
+        app:endIconMode="password_toggle"
+
+
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/confirm_password_signupoptions_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_shape"
+
+            android:hint="Confirm Password"
+            android:padding="10dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -177,6 +280,7 @@
             <AutoCompleteTextView
                 android:id="@+id/select_state_signupoptions_id"
                 android:layout_width="match_parent"
+
 
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -410,6 +514,217 @@
                 android:padding="10dp" />
 
 
+
+
+       <AutoCompleteTextView
+           android:id="@+id/university_signupoptions_id"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_weight="1"
+           android:drawableEnd="@drawable/ic_down"
+           android:hint="No university selected"
+           android:inputType="none"
+           android:layout_marginStart="20dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="20dp"
+           android:background="@drawable/ic_shape"
+           android:padding="10dp" />
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="30dp"
+       android:layout_marginTop="20dp"
+       android:text="Select College"
+       android:textColor="@color/white"
+       android:textSize="20sp" />
+
+
+
+       <AutoCompleteTextView
+           android:id="@+id/college_signupoptions_id"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_weight="1"
+           android:drawableEnd="@drawable/ic_down"
+           android:hint="No college selected"
+           android:inputType="none"
+           android:layout_marginStart="20dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="20dp"
+           android:background="@drawable/ic_shape"
+           android:padding="10dp" />
+
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="30dp"
+       android:layout_marginTop="20dp"
+       android:text="Select Course"
+       android:textColor="@color/white"
+       android:textSize="20sp" />
+
+
+
+       <AutoCompleteTextView
+           android:id="@+id/course_signupoptions_id"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_weight="1"
+           android:drawableEnd="@drawable/ic_down"
+           android:hint="No course selected"
+           android:layout_marginStart="20dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="20dp"
+           android:background="@drawable/ic_shape"
+           android:inputType="none"
+           android:padding="10dp" />
+
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="30dp"
+       android:layout_marginTop="20dp"
+       android:text="Branch"
+       android:textColor="@color/white"
+       android:textSize="20sp" />
+
+
+
+       <AutoCompleteTextView
+           android:id="@+id/branch_signupoptions_id"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_weight="1"
+           android:drawableEnd="@drawable/ic_down"
+           android:hint="No branch selected"
+           android:inputType="none"
+           android:layout_marginStart="20dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="20dp"
+           android:background="@drawable/ic_shape"
+           android:padding="10dp" />
+
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="30dp"
+       android:layout_marginTop="20dp"
+       android:text="Academic Year"
+       android:textColor="@color/white"
+       android:textSize="20sp" />
+
+
+
+       <AutoCompleteTextView
+           android:id="@+id/academic_year_signupoptions_id"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_weight="1"
+           android:drawableEnd="@drawable/ic_down"
+           android:hint="No year selected"
+
+           android:layout_marginStart="20dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="20dp"
+           android:background="@drawable/ic_shape"
+           android:inputType="none"
+           android:padding="10dp" />
+
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="30dp"
+       android:layout_marginTop="20dp"
+       android:text="Select Semester"
+       android:textColor="@color/white"
+       android:textSize="20sp" />
+
+
+
+       <AutoCompleteTextView
+           android:id="@+id/semester_signupoptions_id"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_weight="1"
+           android:layout_marginStart="20dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="20dp"
+           android:background="@drawable/ic_shape"
+           android:drawableEnd="@drawable/ic_down"
+           android:hint="No semester selected"
+           android:inputType="none"
+           android:padding="10dp" />
+
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="30dp"
+       android:layout_marginTop="20dp"
+       android:text="Education Status"
+       android:textColor="@color/white"
+       android:textSize="20sp" />
+
+
+
+       <AutoCompleteTextView
+           android:id="@+id/educationstatus_signupotptions_id"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_weight="1"
+           android:drawableEnd="@drawable/ic_down"
+           android:layout_marginStart="20dp"
+           android:layout_marginTop="10dp"
+           android:layout_marginEnd="20dp"
+           android:background="@drawable/ic_shape"
+
+           android:hint="No Education Status Selected"
+           android:inputType="none"
+           android:padding="10dp" />
+
+
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <Button
+           android:id="@+id/signup_signupoptions_id"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/ic_signup_button"
+           android:padding="10dp"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.0"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintVertical_bias="1.0" />
+
+       <Button
+           android:id="@+id/cancel_signupoptions_id"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/ic_cancel_button"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintVertical_bias="0.0">
+
+       </Button>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:layout_width="wrap_content"
