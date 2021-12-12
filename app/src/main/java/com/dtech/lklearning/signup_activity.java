@@ -39,12 +39,15 @@ public class signup_activity extends AppCompatActivity {
         send_otp.setOnClickListener(v->{
             String mob;
             mob=mob_no.getText().toString();
+            FirebaseAuth mAuth=FirebaseAuth.getInstance();
+
 
             if (!mob.isEmpty()){
 
                 Intent intent=new Intent(signup_activity.this,OtpVerification.class);
 
                 intent.putExtra("mob_no",mob);
+                intent.putExtra("type","signup");
 
                 startActivity(intent);
 

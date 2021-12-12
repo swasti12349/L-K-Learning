@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 
 public class OtpVerification extends AppCompatActivity {
 
-    String mob,verificationCodesent;
+    String mob,verificationCodesent,type;
     FirebaseAuth mAuth;
     TextView text,resend_otp;
     PinView otp_box;
@@ -40,6 +40,7 @@ public class OtpVerification extends AppCompatActivity {
         setContentView(R.layout.otp_verification);
 
         mob = getIntent().getStringExtra("mob_no");
+        type=getIntent().getStringExtra("type");
         mAuth=FirebaseAuth.getInstance();
 
         text=findViewById(R.id.textView4);
@@ -131,9 +132,18 @@ public class OtpVerification extends AppCompatActivity {
                     SharedPreferences.Editor editor=preferences.edit();
                     editor.putString("remember","true");
                     editor.apply();
+                    if (type.equals("login")){
+                        startActivity(new Intent(OtpVerification.this,Home.class));
+                        finish();
+                    }
+                    else{
+                        startActivity(new Intent(OtpVerification.this,DifferentOptions.class));
+                        finish();
 
-                    startActivity(new Intent(OtpVerification.this,DifferentOptions.class));
-                    finish();
+                    }
+
+
+
                 }
                 else{
                     Toast.makeText(OtpVerification.this, "Try again!", Toast.LENGTH_SHORT).show();

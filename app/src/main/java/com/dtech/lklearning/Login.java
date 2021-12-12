@@ -36,6 +36,7 @@ public class Login extends AppCompatActivity {
             if(!Mob.isEmpty()){
                 Intent intent = new Intent(Login.this,OtpVerification.class);
                 intent.putExtra("mob_no",Mob);
+                intent.putExtra("type","login");
                 startActivity(intent);
 
 
