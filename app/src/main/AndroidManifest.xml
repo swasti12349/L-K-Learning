@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dtech.lklearning">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -8,9 +9,9 @@
         android:icon="@drawable/img"
         android:label="@string/app_name"
         android:roundIcon="@drawable/img"
-        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LKLearning">
+        android:theme="@style/Theme.LKLearning"
+        android:usesCleartextTraffic="true">
         <activity android:name=".Payment_one"></activity>
         <activity android:name=".OtpVerification" />
         <activity android:name=".Feedback" />
@@ -20,53 +21,38 @@
         <activity android:name=".signup_activity" />
         <activity android:name=".AboutApp" />
         <activity android:name=".Login" />
-        <activity android:name=".MenuScreen"
+        <activity
+            android:name=".MenuScreen"
             android:exported="true">
 
         </activity>
 
-        <activity android:name=".SignUpOptions"
+        <activity
+            android:name=".SignUpOptions"
             android:exported="true">
-
-
 
 
         </activity>
 
-        <activity android:name=".DifferentOptions"
-            android:exported="true">
+        <activity
+            android:name=".DifferentOptions"
+            android:exported="true"/>
 
 
 
-        <activity android:name=".SignUpOptions"
+        <activity
+            android:name=".AvailableMaterial"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-
-        <activity android:name=".DifferentOptions"
-            android:exported="true">
-
-
-            </activity>
-        <activity
-            android:name=".AvailableMaterial"
-            android:exported="true" >
-
 
         </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
